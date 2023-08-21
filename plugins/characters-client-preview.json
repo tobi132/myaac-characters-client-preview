@@ -4,7 +4,7 @@
 	"version": "1.0",
 	"type": "plugin",
 	"license": "GPLv3",
-	"author": "znote, slawkens",
+	"author": "znote, tobi132",
 	"contact": "slawkens@gmail.com",
 	"require": {
 		"myaac": "0.8.11"
