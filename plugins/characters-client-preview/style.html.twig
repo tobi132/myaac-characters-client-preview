@@ -1,0 +1,227 @@
+<style>
+#piv {
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/m_m.png");
+}
+#piv_flex {
+	display: flex;
+	flex-wrap: wrap;
+	/*align-items: center;*/
+	justify-content: space-between;
+	width: 100%;
+	font-family: Verdana,Geneva,sans-serif;
+	font-size: 7.0pt;
+	line-height: 1;
+	color: rgb(201,201,201);
+}
+#piv_i, #piv_s, #piv_o {
+	position: relative;
+}
+
+#piv_i {
+	width: 126px;
+	height: 207px;
+}
+#piv_s {
+	width: 184px;
+	height: 232px;
+}
+#piv_o {
+	width: {{ 16 + outfitColumns * 40 }}px;
+	height: {{ 29 + outfitRows * 33 }}px;
+}
+#piv_flex img {
+	position: absolute;
+}
+#piv_i .inventory_outfit {
+	position: absolute;
+	top: 130px;
+	left: -24px;
+}
+#piv_lifebar {
+	position: absolute;
+	border-radius: 6px;
+	top: 6px;
+	left: 14px;
+	height: 11px;
+	/*width: 95px;*/
+	width: {{ barHealth }}px;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/lifebarra.png");
+}
+#piv_manabar {
+	position: absolute;
+	border-radius: 6px;
+	top: 19px;
+	left: 14px;
+	height: 11px;
+	/*width: 95px;*/
+	width: {{ barMana }}px;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/manabar.png");
+}
+#piv_lifetext,
+#piv_manatext {
+	position: absolute;
+	display: block;
+	left: 15px;
+	width: {{ barLength }}px;
+	text-align: center;
+}
+#piv_lifetext {
+	top: 7px;
+}
+#piv_manatext {
+	top: 20px;
+}
+#piv_lifetext span,
+#piv_manatext span {
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 3px;
+}
+#piv_flex .itm {
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/bg.png");
+	width: 32px;
+	height: 32px;
+	position: absolute;
+}
+#piv_flex .itm-1 { left: 48px; top: 39px; }
+#piv_flex .itm-2 { left: 11px; top: 53px; }
+#piv_flex .itm-3 { left: 85px; top: 53px; }
+#piv_flex .itm-4 { left: 48px; top: 76px; }
+#piv_flex .itm-5 { left: 85px; top: 90px; }
+#piv_flex .itm-6 { left: 11px; top: 90px; }
+#piv_flex .itm-7 { left: 48px; top: 113px; }
+#piv_flex .itm-8 { left: 48px; top: 150px; }
+#piv_flex .itm-9 { left: 11px; top: 127px; }
+#piv_flex .itm-10 { left: 85px; top: 127px; }
+#piv_cap {
+	position: absolute;
+	top: 162px;
+	left: 85px;
+	min-width: 32px;
+	text-align: center;
+}
+
+#piv_s .txt {
+	position: absolute;
+}
+#s_exp 				{ right: 22px; top: 16px; }
+#s_lvl 				{ right: 22px; top: 30px; }
+#s_hp 				{ right: 22px; top: 44px; }
+#s_mp 				{ right: 22px; top: 58px; }
+#s_soul 			{ right: 22px; top: 71px; }
+#s_cap 				{ right: 22px; top: 86px; }
+#s_stamina 			{ right: 22px; top: 100px; }
+#s_maglevel 		{ right: 22px; top: 114px; }
+#s_skill_fist 		{ right: 22px; top: 132px; }
+#s_skill_club 		{ right: 22px; top: 146px; }
+#s_skill_sword 		{ right: 22px; top: 160px; }
+#s_skill_axe 		{ right: 22px; top: 174px; }
+#s_skill_dist 		{ right: 22px; top: 188px; }
+#s_skill_shielding 	{ right: 22px; top: 202px; }
+#s_skill_fishing 	{ right: 22px; top: 215px; }
+
+/* Dynamically render background container size for outfits */
+#piv_o .bg {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#piv_o .bg_t {
+	height: 21px;
+	width: 100%;
+}
+#piv_o .bg_m {
+	width: 100%;
+	height: {{ outfitRows * 33 }}px;
+}
+#piv_o .t_l {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/t_l.png");
+	width: 8px;
+	height: 21px;
+}
+#piv_o .t_m {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/t_m.png");
+	width: 100%;
+	height: 21px;
+}
+#piv_o .t_r {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/t_r.png");
+	width: 50px;
+	height: 21px;
+}
+#piv_o .m_l {
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/m_l.png");
+	width: 8px;
+	height: inherit;
+	float: left;
+}
+#piv_o .m_m {
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/m_m.png");
+	width: calc(100% - 16px);
+	height: inherit;
+	float: left;
+}
+#piv_o .m_r {
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/m_r.png");
+	width: 8px;
+	height: inherit;
+	float: left;
+}
+#piv_o .b_l {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/b_l.png");
+	width: 8px;
+	height: 8px;
+}
+#piv_o .b_m {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/b_m.png");
+	width: 100%;
+	height: 8px;
+}
+#piv_o .b_r {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-image: url("{{ constant('BASE_URL') }}plugins/characters-client-preview/img/o/b_r.png");
+	width: 8px;
+	height: 8px;
+}
+
+/* Render outfit player sprites */
+#piv_o_container {
+	height: inherit;
+	width: inherit;
+}
+#piv_o_container .o {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#piv_o_container .o.grayimg {
+	filter: none;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	opacity: .5;
+	filter: alpha(opacity=50);
+	margin-left: -25pt;
+	margin-top: -25px;
+}
+</style>

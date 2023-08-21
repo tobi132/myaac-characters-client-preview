@@ -1,0 +1,19 @@
+{
+	"name": "Characters Client Preview",
+	"description": "Preview of EQ, skills and outfits for MyAAC.",
+	"version": "1.0",
+	"type": "plugin",
+	"license": "GPLv3",
+	"author": "znote, slawkens",
+	"contact": "slawkens@gmail.com",
+	"require": {
+		"myaac": "0.8.11"
+	},
+	"hooks": {
+		"Characters Client Preview": {
+			"type": "CHARACTERS_BEFORE_DEATHS",
+			"file": "plugins/characters-client-preview/show.php"
+		}
+	},
+	"install": "plugins/characters-client-preview/install.php"
+}
